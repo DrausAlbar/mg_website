@@ -1,17 +1,68 @@
+/* Css estandar del sitio:  Mirogames.
+Fondo	#0F172A <-- Azul oscuro
+Paneles	#1E293B <-- Azul grisaseo
+links	#38BDF8 <-- Azul neon
+boredes	#475569 <-- gris azulado
+Texto	#F8FAFC <-- Blanco ligeramente azul
+*/
+
+
 body {
+    padding: 20px;
+    margin: 20px;
     background-color: #0F172A;
     color: #F8FAFC;
     background-image:
         radial-gradient(circle at right bottom,
             rgba(0, 0, 0, 0.4) 0%,
-            /* Más transparente en el centro */
             rgba(0, 0, 0, 0.85) 70%,
-            /* Se va oscureciendo */
             rgba(0, 0, 0, 0.95) 100%),
-        /* Muy oscuro en los bordes */
         url("/images/microgames/bg-space.jpg");
     background-repeat: no-repeat;
     background-position: right bottom;
     background-size: cover;
     background-attachment: fixed;
+}
+a {
+    color: #38BDF8;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #38BDF8;
+    text-shadow: #38BDF8 0px 0px 1px
+}
+
+h2 {
+    font-size: 500%;
+}
+
+header {
+
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+footer {
+
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.bar-bottom {
+border-bottom: 5px solid #1962aa;
+border-radius: 10px;
+}
+
+.bar-top {
+border-top: 5px solid #1962aa;
+border-radius: 10px;
 }
