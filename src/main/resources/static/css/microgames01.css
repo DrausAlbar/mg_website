@@ -1,0 +1,17 @@
+body {
+    background-color: #0F172A;
+    color: #F8FAFC;
+    background-image:
+        radial-gradient(circle at right bottom,
+            rgba(0, 0, 0, 0.4) 0%,
+            /* Más transparente en el centro */
+            rgba(0, 0, 0, 0.85) 70%,
+            /* Se va oscureciendo */
+            rgba(0, 0, 0, 0.95) 100%),
+        /* Muy oscuro en los bordes */
+        url("/images/microgames/bg-space.jpg");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: cover;
+    background-attachment: fixed;
+}

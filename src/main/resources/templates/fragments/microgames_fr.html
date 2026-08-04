@@ -1,0 +1,37 @@
+<!--Actualizaciones pendientes:
+    CSS dinámico
+    Multilenguaje
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head th:fragment="es_head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroGames</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="icon" th:href="@{/images/favicon.ico}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/microgames01.css}">
+</head>
+
+<header th:fragment="es_header">
+    <div class="box">
+        <h2>MicroGames</h2>
+        <p class="right"> Pequeños universos. </p>
+    </div>
+</header>
+
+<body>
+    <footer th:fragment="es_footer">
+        <div class="footer-div">
+            <p class="bar-top" style="padding: 3vh;">© 2026 Fallen empire - Derechos reservados.</p>
+            <p> MicroGames</p>
+        </div>
+    </footer>
+</body>
+
+</html>
