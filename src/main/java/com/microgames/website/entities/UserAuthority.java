@@ -21,8 +21,10 @@ public class UserAuthority {
     @JoinColumn(name = "id")
     private UserData userData;
 
+    /* Nivel de roles */
+    
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "authority_id", nullable = false)
+    @JoinColumn(name = "authority_id", nullable = false, columnDefinition = "BIGINT DEFAULT 5")
     private Authority authority;
 
     public Long getId() {

@@ -9,7 +9,7 @@ public class ControllerWeb {
     @GetMapping("/home")
     public String index()
     {
-        return "index.html";
+        return "index";
     }
 
 }
