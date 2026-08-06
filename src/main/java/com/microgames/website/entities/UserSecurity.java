@@ -24,10 +24,10 @@ public class UserSecurity {
     @Column(nullable = false)
     private String passwordHash;
 
-    @Column(nullable = false, length = 128)
+    @Column(length = 128)
     private String securityQuestion;
 
-    @Column(nullable = false)
+    @Column()
     private String securityAnswerHash;
 
     public Long getId() {

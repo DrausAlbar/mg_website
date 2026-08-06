@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head th:replace="~{fragments/microgames_fr.html :: es_head}">
+    Error: Head -fr
+</head>
+
+<body>
+<header th:replace="~{fragments/microgames_fr.html :: es_header}"></header>
+
+<main class="d-flex justify-content-center">
+    <div class="col-11 col-sm-8 col-md-5 col-lg-4">
+
+        <div class="p-4" style="background-color:#1E293B; border-radius:10px; border:1px solid #475569;">
+
+            <h4 class="text-center mb-4">Crear cuenta</h4>
+
+            <!-- Errores de validacion de negocio (email duplicado, passwords distintas, etc) -->
+            <div th:if="${errors}" class="alert alert-danger">
+                <ul class="mb-0">
+                    <li th:each="error : ${errors}" th:text="${error}"></li>
+                </ul>
+            </div>
+
+            <form th:action="@{/register}" th:object="${registerDTO}" method="post">
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo electrónico</label>
+                    <input type="email" id="email" class="form-control" th:field="*{email}"
+                           placeholder="tucorreo@ejemplo.com" autocomplete="email">
+                    <div class="text-danger small" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" id="password" class="form-control" th:field="*{password}"
+                           placeholder="Mínimo 8 caracteres" autocomplete="new-password">
+                    <div class="text-danger small" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
+                    <input type="password" id="confirmPassword" class="form-control" th:field="*{confirmPassword}"
+                           placeholder="Repite tu contraseña" autocomplete="new-password">
+                    <div class="text-danger small" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></div>
+                </div>
+
+                <button type="submit" class="btn w-100" style="background-color:#38BDF8; color:#0F172A; font-weight:bold;">
+                    Registrarme
+                </button>
+
+            </form>
+
+            <p class="text-center mt-3 mb-0">
+                ¿Ya tienes cuenta? <a th:href="@{/login}">Inicia sesión</a>
+            </p>
+
+        </div>
+    </div>
+</main>
+
+<footer th:replace="~{fragments/microgames_fr.html :: es_footer}"></footer>
+
+</body>
+</html>

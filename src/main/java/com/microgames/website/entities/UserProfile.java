@@ -23,7 +23,7 @@ public class UserProfile {
     @JoinColumn(name = "id")
     private UserData userData;
 
-    @Column(unique = true, nullable = false, length = 20)
+    @Column(unique = true, length = 20)
     private String username;
 
     @Column(length = 64)
@@ -43,7 +43,7 @@ public class UserProfile {
 
     @Column(length = 500)
     private String bio;
-
+    
     public Long getId() {
         return id;
     }

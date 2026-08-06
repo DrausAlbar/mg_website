@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Credenciales / entorno ###
+.env
+*.env
+pass.txt
+application-local.properties
