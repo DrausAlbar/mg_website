@@ -12,11 +12,15 @@ public class ControllerWeb {
         return "index";
     }
 
-
-    
+   
     @GetMapping("/login")
     public String login()
     {
         return "login";
+    }
+
+        @GetMapping("/complete-profile")
+    public String showCompleteProfileForm() {
+        return "complete-profile"; // TODO: formulario real para UserProfile
     }
 }

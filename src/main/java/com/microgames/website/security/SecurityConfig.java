@@ -7,10 +7,23 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    private final CustomAuthenticationSuccessHandler successHandler;
+    private final CustomAuthenticationFailureHandler failureHandler;
+    private final ProfileCompletionFilter profileCompletionFilter;
+
+    public SecurityConfig(CustomAuthenticationSuccessHandler successHandler,
+                           CustomAuthenticationFailureHandler failureHandler,
+                           ProfileCompletionFilter profileCompletionFilter) {
+        this.successHandler = successHandler;
+        this.failureHandler = failureHandler;
+        this.profileCompletionFilter = profileCompletionFilter;
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -21,7 +34,6 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(auth -> auth
-                // Rutas públicas: home, login, registro, recursos estáticos
                 .requestMatchers(
                     "/",
                     "/home",
@@ -32,19 +44,22 @@ public class SecurityConfig {
                     "/images/**",
                     "/favicon.ico"
                 ).permitAll()
-                // Todo lo demás requiere login
                 .anyRequest().authenticated()
             )
             .formLogin(form -> form
                 .loginPage("/login")
-                .defaultSuccessUrl("/home", true)
+                .usernameParameter("email")
+                .passwordParameter("password")
+                .successHandler(successHandler)
+                .failureHandler(failureHandler)
                 .permitAll()
             )
             .logout(logout -> logout
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/home")
                 .permitAll()
-            );
+            )
+            .addFilterAfter(profileCompletionFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
