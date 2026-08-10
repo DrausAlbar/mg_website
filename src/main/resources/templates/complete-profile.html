@@ -1,20 +1,46 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="es" >
-<head th:replace="~{fragments/microgames_fr.html ::es_head}">
-Error: Head -fr
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head th:replace="~{fragments/microgames_fr.html :: es_head}">
+    Error: Head -fr
 </head>
 
 <body>
-<header th:replace="~{fragments/microgames_fr.html ::es_header}">
+<header th:replace="~{fragments/microgames_fr.html :: es_header}"></header>
 
-</header>
-<main>
-    PlaceHolder: Complete Profile
+<main class="d-flex justify-content-center">
+    <div class="col-11 col-sm-8 col-md-5 col-lg-4">
+
+        <div class="p-4" style="background-color:#1E293B; border-radius:10px; border:1px solid #475569;">
+
+            <h4 class="text-center mb-4">Completa tu perfil</h4>
+
+            <div th:if="${errors}" class="alert alert-danger">
+                <ul class="mb-0">
+                    <li th:each="error : ${errors}" th:text="${error}"></li>
+                </ul>
+            </div>
+
+            <form th:action="@{/complete-profile}" th:object="${registerUsernameDTO}" method="post">
+
+                <div class="mb-4">
+                    <label for="username" class="form-label">Nombre de usuario</label>
+                    <input type="text" id="username" class="form-control" th:field="*{username}"
+                           placeholder="Elige un nombre de usuario" autocomplete="username">
+                    <div class="text-danger small" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+                </div>
+
+                <button type="submit" class="btn w-100" style="background-color:#38BDF8; color:#0F172A; font-weight:bold;">
+                    Continuar
+                </button>
+
+            </form>
+
+        </div>
+    </div>
 </main>
 
-<footer th:replace="~{fragments/microgames_fr.html ::es_footer}">
+<footer th:replace="~{fragments/microgames_fr.html :: es_footer}"></footer>
 
-</footer>
 </body>
-
 </html>

@@ -19,8 +19,4 @@ public class ControllerWeb {
         return "login";
     }
 
-        @GetMapping("/complete-profile")
-    public String showCompleteProfileForm() {
-        return "complete-profile";
-    }
 }
