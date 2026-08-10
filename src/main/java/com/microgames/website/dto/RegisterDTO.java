@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 public class RegisterDTO {
 
     @NotBlank
-    @Size(max = 64, message = "El correo electrónico no puede tener más de 64 caracteres")
+    @Size(max = 100, message = "El correo electrónico es demasiado largo")
     @Email
     private String email;
 

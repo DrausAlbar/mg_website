@@ -15,7 +15,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @Component
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler {
 
-    // TODO: confirmar significado real de registerStatus
     private static final int REGISTER_STATUS_COMPLETE = 2;
 
     @Override

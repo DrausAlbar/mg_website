@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @Component
 public class ProfileCompletionFilter extends OncePerRequestFilter {
 
-    // TODO: mantener sincronizado con CustomAuthenticationSuccessHandler
+
     private static final int REGISTER_STATUS_COMPLETE = 2;
 
     // Rutas permitidas aunque el perfil esté incompleto
